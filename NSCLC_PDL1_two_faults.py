@@ -16,19 +16,19 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     Osimertinib=x1#Targets EGFR
     Selpercatinib=x2#=1 #Targets KIF5BRET
     Trastuzumab_deruxtecan=x3#Targets ERBB2
-    Savolitinib=x4#Targets MET
+    Crizotinib=x4#Targets MET
     Dabrafenib=x5#=1 #Targets RAF
     Durvalumab=x6#Targets PD_L1
     Trametinib=x7#=1 #Targets MEK
     Alpelisib=x8#=1 #Targets PI3K
-    Enzastaurin=x9#=1 #Targets PKC
+    Midostaurin=x9#=1 #Targets PKC
     Lumakras=x10#=1 #Targets KRAS
-    RG7388=x11#=1 #Targets MDM2
+    MDM2_Inhibitor=x11#=1 #Targets MDM2
     Ribociclib=x12#=1 #Targets CDK4/6
     STAT_Inhibitor=x13#=1 #Targets STAT3/5
     Everolimus=x14#=1 #Targets mTOR
     Lorlatinib=x15#=1 #Targets EM4ALK
-    MK2206 =x16#=1 #Targets AKT
+    Capivasertib =x16#=1 #Targets AKT
     
     
 
@@ -65,12 +65,12 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 7 or fault2 == 7:
         PLCgamma = 1
     else:
-        PLCgamma = int((EGFR and (not Osimertinib)) or (ERBB2 and (not Trastuzumab_deruxtecan)) or (MET and (not Savolitinib)) or (EML4ALK1 and (not Lorlatinib)))
+        PLCgamma = int((EGFR and (not Osimertinib)) or (ERBB2 and (not Trastuzumab_deruxtecan)) or (MET and (not Crizotinib)) or (EML4ALK1 and (not Lorlatinib)))
        
     if fault1 == 8 or fault2 == 8:
         GrB2 = 1
     else:
-        GrB2 = int((EGFR and (not Osimertinib)) or (ERBB2 and (not(Trastuzumab_deruxtecan))) or (MET and (not Savolitinib)))
+        GrB2 = int((EGFR and (not Osimertinib)) or (ERBB2 and (not(Trastuzumab_deruxtecan))) or (MET and (not Crizotinib)))
     
     if fault1 == 9 or fault2 == 9:
         KRAS = 1
@@ -80,7 +80,7 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 10 or fault2 == 10:
         PI3K = 1
     else:
-        PI3K = int((ERBB2 and (not Trastuzumab_deruxtecan)) or (EGFR and (not Osimertinib)) or (MET and (not Savolitinib)) or (EML4ALK1 and (not Lorlatinib)) or (KRAS and (not Lumakras)))
+        PI3K = int((ERBB2 and (not Trastuzumab_deruxtecan)) or (EGFR and (not Osimertinib)) or (MET and (not Crizotinib)) or (EML4ALK1 and (not Lorlatinib)) or (KRAS and (not Lumakras)))
 
     if fault1 == 11 or fault2 == 11:
         SOS = 1
@@ -136,7 +136,7 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 21 or fault2 == 21:
         RAF = 1
     else:
-        RAF = int((KRAS and (not Lumakras)) or (RAS and (not Lumakras)) or (PKC and (not Enzastaurin)))
+        RAF = int((KRAS and (not Lumakras)) or (RAS and (not Lumakras)) or (PKC and (not Midostaurin)))
         
     if fault1 == 22 or fault2 == 22:
         TLR = 1
@@ -161,7 +161,7 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 26 or fault2 == 26:
         STAT3by5 = 1
     else:
-        STAT3by5 = int(JAK3 or (EGFR and (not Osimertinib)) or (ERBB2 and (not Trastuzumab_deruxtecan)) or (MET and (not Savolitinib)) or (KRAS and (not Lumakras)))
+        STAT3by5 = int(JAK3 or (EGFR and (not Osimertinib)) or (ERBB2 and (not Trastuzumab_deruxtecan)) or (MET and (not Crizotinib)) or (KRAS and (not Lumakras)))
   
     if fault1 == 27 or fault2 == 27:
         PKB_Akt = 1
@@ -181,7 +181,7 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 30 or fault2 == 30:
         IKK = 1
     else:
-        IKK = int(TRIF or (PKB_Akt and (not MK2206)))
+        IKK = int(TRIF or (PKB_Akt and (not Capivasertib)))
         
     if fault1 == 31 or fault2 == 31:
         NFAT = 1
@@ -196,7 +196,7 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 33 or fault2 == 33:        
         NFKB = 1
     else:
-        NFKB = int((PKB_Akt and (not MK2206)) or IKK) 
+        NFKB = int((PKB_Akt and (not Capivasertib)) or IKK) 
         
     if fault1 == 34 or fault2 == 34:        
         PD_L1 = 1
@@ -211,17 +211,17 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     if fault1 == 36 or fault2 == 36:        
         mTOR = 1
     else:
-        mTOR = int(PKB_Akt and (not MK2206))                   
+        mTOR = int(PKB_Akt and (not Capivasertib))                   
 
     if fault1 == 37 or fault2 == 37:        
         MDM2 = 1
     else:
-        MDM2 = int(DNA  or (PKB_Akt and (not MK2206)))                   
+        MDM2 = int(DNA  or (PKB_Akt and (not Capivasertib)))                   
 
     if fault1 == 38 or fault2 == 38:        
         P53 = 0
     else:
-        P53 = int(not(MDM2 and (not RG7388)))       
+        P53 = int(not(MDM2 and (not MDM2_Inhibitor)))       
         
     if fault1 == 39 or fault2 == 39:
         FHIT = 0
@@ -252,9 +252,9 @@ def NSCLC_PDL1_two_faults(fault1, fault2, x1, x2, x3, x4, x5, x6, x7, x8, x9, x1
     CD1 = int(CyclinD1)
     Rb = int(CDK4by6 and (not Ribociclib)) 
     S6K =  int(mTOR and (not Everolimus))
-    BAD = int(not(PKB_Akt and (not MK2206)))
-    CASP9 = int(not(PKB_Akt and (not MK2206)))
-    Forkhead = int((not(PKB_Akt and (not MK2206))) and MST1)
+    BAD = int(not(PKB_Akt and (not Capivasertib)))
+    CASP9 = int(not(PKB_Akt and (not Capivasertib)))
+    Forkhead = int((not(PKB_Akt and (not Capivasertib))) and MST1)
     FHIT1 = int(FHIT)
     T_Cell = int(not(PD_L1 and (not Durvalumab)))
 
