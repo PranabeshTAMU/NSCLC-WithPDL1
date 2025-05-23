@@ -7,7 +7,7 @@ from NSCLC_PDL1_two_faults import NSCLC_PDL1_two_faults
 from NSCLC_PDL1_three_faults import NSCLC_PDL1_three_faults
 #import matplotlib.pyplot as plt
 
-drugs = ['Osimertinib', 'Selpercatinib', 'Trastuzumab_deruxtecan', 'Crizotinib', 'Dabrafenib', 'Durvalumab', 'Trametinib', 'Alpelisib', 'Midostaurin', 'Lumakras', 'MDM2_Inhibitor', 'Ribociclib', 'STAT_Inhibitor', 'Everolimus', 'Lorlatinib', 'Capivasertib']
+drugs = ['Osimertinib', 'Selpercatinib', 'Trastuzumab_deruxtecan', 'Crizotinib', 'Dabrafenib', 'Durvalumab', 'Trametinib', 'Alpelisib', 'Midostaurin', 'Lumakras', 'RG7388', 'Ribociclib', 'STAT_Inhibitor', 'Everolimus', 'Lorlatinib', 'Capivasertib']
 
 num_drugs = n = 4 #number of drugs
 
