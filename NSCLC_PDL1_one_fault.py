@@ -23,7 +23,7 @@ def NSCLC_PDL1_one_fault(fault1, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x
     Alpelisib=x8#=1 #Targets PI3K
     Midostaurin=x9#=1 #Targets PKC
     Lumakras=x10#=1 #Targets KRAS
-    MDM2_Inhibitor=x11#=1 #Targets MDM2
+    RG7388=x11#=1 #Targets MDM2
     Ribociclib=x12#=1 #Targets CDK4/6
     STAT_Inhibitor=x13#=1 #Targets STAT3/5
     Everolimus=x14#=1 #Targets mTOR
@@ -221,7 +221,7 @@ def NSCLC_PDL1_one_fault(fault1, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x
     if fault1 == 38:        
         P53 = 0
     else:
-        P53 = int(not(MDM2 and (not MDM2_Inhibitor)))       
+        P53 = int(not(MDM2 and (not RG7388)))       
         
     if fault1 == 39:
         FHIT = 0
