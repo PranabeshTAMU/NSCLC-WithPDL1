@@ -21,7 +21,7 @@ def NSCLC_PDL1_one_fault(fault1, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x
     Durvalumab=x6#Targets PD_L1
     Trametinib=x7#=1 #Targets MEK
     Alpelisib=x8#=1 #Targets PI3K
-    Midostaurin=x9#=1 #Targets PKC
+    Enzastaurin=x9#=1 #Targets PKC
     Lumakras=x10#=1 #Targets KRAS
     RG7388=x11#=1 #Targets MDM2
     Ribociclib=x12#=1 #Targets CDK4/6
@@ -136,7 +136,7 @@ def NSCLC_PDL1_one_fault(fault1, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x
     if fault1 == 21:
         RAF = 1
     else:
-        RAF = int((KRAS and (not Lumakras)) or (RAS and (not Lumakras)) or (PKC and (not Midostaurin)))
+        RAF = int((KRAS and (not Lumakras)) or (RAS and (not Lumakras)) or (PKC and (not Enzastaurin)))
         
     if fault1 == 22:
         TLR = 1
